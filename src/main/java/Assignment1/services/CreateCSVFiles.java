@@ -1,10 +1,10 @@
-package services;
+package Assignment1.services;
 
 import java.io.*;
 import java.util.*;
 import com.opencsv.CSVWriter;
-import model.Person;
-import model.PersonBuilder;
+import Assignment1.model.Person;
+import Assignment1.model.PersonBuilder;
 
 public class CreateCSVFiles {
     private static final String CSV_FILE_PATH
