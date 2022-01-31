@@ -1,4 +1,4 @@
-package Assignment1;
+package Assignment1.services;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FileStatus;
@@ -23,7 +23,7 @@ public class LoadHbase {
 
     public  static  FileSystem fs;
     public  static  String uri="hdfs://localhost:9000/";
-    public  static  String dir="hdfs://localhost:9000/Users/sagarsangam/Downloads/Assignments/";
+    public  static  String dir="hdfs://localhost:9000/Users/mdhasnain/Test/";
     public  static Path[] filePaths;
 
     public  static  void readPath() throws IOException {
@@ -49,7 +49,9 @@ public class LoadHbase {
 
 
             // Verifying the existance of the table
-            HBaseAdmin admin = (HBaseAdmin) connection.getAdmin();
+            //HBaseAdmin admin = (HBaseAdmin) connection.getAdmin();
+            conf.set("hbase.rootdir","file://opt/homebrew/Cellar/hbase/2.4.6/bin");
+            Admin admin = connection.getAdmin();
             Table table ;
             if( admin.tableExists(TableName.valueOf("people")) ){
                 //Table Exist so just create connection
@@ -57,6 +59,7 @@ public class LoadHbase {
                 table = connection.getTable(TableName.valueOf("people"));
             }else{
 
+                System.out.println("Table does not exist");
                 //Create Table
                 // Instantiating table descriptor class
                 //Then, we can create a table by passing an instance of the HTableDescriptor class to a createTable() method on the admin object
@@ -121,10 +124,19 @@ public class LoadHbase {
         }
 
     }
+
+//    public void createTable() throws Exception{
+//        HBaseConfiguration hconfig = new HBaseConfiguration
+//                (new Configuration());
+//        HTableDescriptor htable = new HTableDescriptor(TableName.valueOf("EmployeeInfo"));
+//        htable.addFamily( new HColumnDescriptor("EmployeeDetails"));
+//        HBaseAdmin hbase_admin = new HBaseAdmin( hconfig );
+//        hbase_admin.createTable( htable );
+//    }
     public static void main(String[] args) throws IOException {
         //Creating the Config file
 
-        readPath();
+        //readPath();
         insertingDetails();
 
 

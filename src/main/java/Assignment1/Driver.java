@@ -4,7 +4,7 @@ import Assignment1.services.CreateCSVFiles;
 import Assignment1.services.LoadToHbase;
 import Assignment1.services.UploadToHDFS;
 
-public class Client {
+public class Driver {
 
     public static void main(String[] args) throws Exception {
 
