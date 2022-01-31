@@ -1,0 +1,9 @@
+syntax = "proto3";
+package example.buildings;
+
+message Building {
+  string building_code = 1;
+  int32 total_floors = 2;
+  int32 companies_in_the_building = 3;
+  string cafeteria_code = 4;
+}
