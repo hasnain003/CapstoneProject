@@ -1,4 +1,4 @@
-package model;
+package Assignment1.model;
 
 public class Person {
     private String name;
