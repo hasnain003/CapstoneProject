@@ -1,4 +1,4 @@
-package model;
+package Assignment1.model;
 
 import com.github.javafaker.Faker;
 
