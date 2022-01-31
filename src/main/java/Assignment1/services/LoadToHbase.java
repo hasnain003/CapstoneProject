@@ -1,4 +1,4 @@
-package services;
+package Assignment1.services;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FileStatus;
@@ -22,7 +22,7 @@ import java.net.URI;
 public class LoadToHbase {
     public static FileSystem fileSystem;
     public static String uri = "hdfs://localhost:9000/";
-    public static String dir = "hdfs://localhost:9000/Users/mdhasnain/Assisgnemt/";
+    public static String dir = "hdfs://localhost:9000/Users/mdhasnain/Test/";
     public static Path[] filePaths;
 
     public static void LoadConfig() throws Exception {
@@ -48,17 +48,17 @@ public class LoadToHbase {
             HBaseAdmin admin = (HBaseAdmin) connection.getAdmin();
             Table table;
             System.out.println("Check if the table already exist");
-//            if(admin.tableExists(TableName.valueOf("people"))) {
-//                //Table Exist so just create connection
-//                System.out.println("Table already exist no need to create");
-//                table = connection.getTable(TableName.valueOf("people"));
-//            }
-            //else {
+            if(admin.tableExists(TableName.valueOf("people"))) {
+                //Table Exist so just create connection
+                System.out.println("Table already exist no need to create");
+                table = connection.getTable(TableName.valueOf("people"));
+            }
+            else {
                 // Create Table
                 //Instantiating table descriptor class
                 System.out.println("Table creation started");
                 table = createHBaseTable(admin,connection);
-            //}
+            }
             for(Path path: filePaths) {
                 System.out.println(path);
                 addDataToHBaseTable(path,table);
