@@ -36,6 +36,6 @@ public class UploadToHDFS {
             fileSystem.copyFromLocalFile(new Path(path+fileName),path1);
         }
         System.out.println("Uploading to HDFS completed");
-
+       fileSystem.close();
     }
 }

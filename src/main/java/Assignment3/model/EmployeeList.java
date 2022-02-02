@@ -21,7 +21,7 @@ public class EmployeeList {
 
     public static List<Employee> getEmployeeList() {
         List<Employee> employeeList = new ArrayList<>();
-        for(int i = 1;i<=10;i++) {
+        for(int i = 1;i<=20;i++) {
             employeeList.add(getEmployee());
         }
         return employeeList;

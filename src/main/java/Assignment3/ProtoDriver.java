@@ -26,7 +26,7 @@ public class ProtoDriver {
                     .setBuildingCode(fields[2].replaceAll("\"", ""))
                     .setFloorNumber(EmployeeOuterClass.Floor_Number.forNumber(Integer.parseInt(fields[3].replaceAll("\"", ""))))
                     .setSalary(Integer.parseInt(fields[4].replaceAll("\"", "")))
-                    .setDepartment(fields[5].replaceAll("\"", ""));
+                    .setDepartment(fields[5].replaceAll("\"", "")).build();
             System.out.println(builder.toString());
         }
         fileReader.close();
@@ -46,7 +46,7 @@ public class ProtoDriver {
             builder.setBuildingCode(fields[0].replaceAll("\"", ""))
                     .setTotalFloors(Integer.parseInt(fields[1].replaceAll("\"", "")))
                     .setCompaniesInTheBuilding(Integer.parseInt(fields[2].replaceAll("\"", "")))
-                    .setCafeteriaCode(fields[3].replaceAll("\"", ""));
+                    .setCafeteriaCode(fields[3].replaceAll("\"", "")).build();
             System.out.println(builder.toString());
         }
         System.out.println("Finished printing proto objects");
