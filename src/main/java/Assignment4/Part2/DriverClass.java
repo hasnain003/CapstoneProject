@@ -28,7 +28,7 @@ import java.util.List;
 public class DriverClass {
     public static final String CSV_FILE_PATH = "/Users/mdhasnain/FileStore/";
     public static void main(String[] args) throws IOException, InterruptedException, ClassNotFoundException {
-        /*List<Scan> scans = new ArrayList<>();
+        List<Scan> scans = new ArrayList<>();
         Scan scan = new Scan();
         scan.setCaching(500);
         scan.setCacheBlocks(false);
@@ -61,7 +61,7 @@ public class DriverClass {
         System.out.println(b);
         if (job.isSuccessful()) {
             System.out.println("Cafeteria code added to employee table");
-        }*/
+        }
         joinEmployeesAndBuilding();
     }
     public static void joinEmployeesAndBuilding() throws IOException {
